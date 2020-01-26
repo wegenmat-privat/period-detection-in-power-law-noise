@@ -5,14 +5,14 @@ Period detection in power law noise
 Disclaimer
 ==========
 This project is neither finished nor likely to be maintained by me.
-So everybody is invited to participate in developing.
+So everybody is invited to participate in development.
 
 Introduction
 ============
-The scripts in this repo are here to give an impulse to establish a method for period detection in unevenly sampled times series assuming power law noise.
-The approach is simliar to [1]_, except that uneven sampling of the time series is taking into account via Monte Carlo simulations.
+The scripts in this repo are here to give an impulse to establish a method for period detection in unevenly sampled times series, assuming power law noise.
+The approach is similar to [1]_, except that uneven sampling of the time series is taken into account via Monte Carlo simulations.
 First, the noise level of the times series is determined using the PSRESP method.
-Then, period detection is carried out using simulated time series with identical sampling and noise level as the data set.
+Then, period detection is carried out using simulated time series with the identical sampling and noise level as the data set.
 The periodogram of both simulation and data set is compared and only peaks exceeding a certain percentile are regarded as significant periods.
 
 The code is written in accordance with gammapy for more convenient inmplementation. Test-scripts for analysis and plot are also provided.
@@ -21,9 +21,9 @@ Background
 ==========
 A general assumption when analysing a time series in terms of periodicity is that the highest peak of the periodogram denotes the underlying period.
 Further peaks are usually traced down to subharmonics, multi-term periodicity, aliasing or a periodicity in the sampling.
-Eventually, significance levels in terms of a false alarm probalbility are added to decide whether a peak is high enough to be considered significant, assuming diverging underlying distributions of the periodogram peaks, i.e. [2]_, or using bootstraping, i.e. [3]_.
+Eventually, significance levels in terms of a false alarm probability are added to decide whether a peak is high enough to be considered significant, assuming diverging underlying distributions of the periodogram peaks, i.e. [2]_, or using bootstrapping, i.e. [3]_.
 
-However, these approaches only hold assuming a white noise null hypothesis.
+However, these approaches only hold under the assumption of a white noise null hypothesis.
 As soon as the time series has a non-white noise level, power in the periodogram is shifted such that the highest peaks are due to stochasticity rather than perodicity and the peak of a potential period is burried in the noisy periodogram.
 
 .. figure:: period_data.png
