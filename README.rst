@@ -19,7 +19,22 @@ Further peaks are usually traced down to subharmonics, multi-term periodicity, a
 Eventually, significance levels in terms of a false alarm probalbility are added to decide whether a peak is high enough to be considered significant, assuming diverging underlying distributions of the periodogram peaks, i.e. [2]_, or using bootstraping, i.e. [3]_.
 
 However, these approaches only hold assuming a white noise null hypothesis.
-As soon as the time serie has a non-white noise level, power in the periodogram is shifted such that the highest peaks are due to stochasticity rather than perodicity and a potential period is burried in the noisy periodogram.
+As soon as the time serie has a non-white noise level, power in the periodogram is shifted such that the highest peaks are due to stochasticity rather than perodicity and the peak of a potential period is burried in the noisy periodogram.
+
+.. figure:: LSP_alpha1.6+0.2sin16d_clean.png
+
+    LombScargle periodogram of a time series with a power-law shaped noise level with power 1.6.
+    The time series is superosed by a sinusoid with a period of 16 days.
+    
+The peak at 16 days may be prominent on a local perspective, but since it is not the global maximum, it won't fulfill any significance criteria based on a static power level for all periods.
+Rather, the rising of periodogram power for higher periods must be taken into account.
+This can be done by comparing the observed periodogram with the periodogram of simulated time series that have the same noise level as the data set.
+In case of an underlying periodicity, only the peak at that period should exceed the simulated periodogram peaks.
+
+.. figure:: LSP_alpha1.6+0.2sin16d.png
+
+    LombScargle periodogram of the observed time serie (blue line) and the 95%- respectively 99%-percentile (green/orange line) of the simulated periodogram distribution.
+    The peak at 16 days is correctly detected by the 99%-percentile.
 
 Getting Started
 ===============
