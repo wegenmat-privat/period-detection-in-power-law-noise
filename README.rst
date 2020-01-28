@@ -15,7 +15,9 @@ First, the noise level of the times series is determined using the PSRESP method
 Then, period detection is carried out using simulated time series with the identical sampling and noise level as the data set.
 The periodogram of both simulation and data set is compared and only peaks exceeding a certain percentile are regarded as significant periods.
 
-The code is written in accordance with gammapy for more convenient inmplementation. Test-scripts for analysis and plot are also provided.
+`period-in-noise.py <https://github.com/wegenmat-privat/period-detection-in-power-law-noise/blob/master/period-in-noise.py>`_ illustrates the general idea.
+
+The code is mostly written in accordance with gammapy for more convenient inmplementation. Test-scripts for analysis and plot are also provided.
 
 Background
 ==========
